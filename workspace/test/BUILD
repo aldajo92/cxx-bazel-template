@@ -21,6 +21,7 @@ cc_test(
     srcs = ["planner_test.cpp"],  # Test file for Planner
     deps = [
         "//main:planner_lib",
+        "//main:pid_controller_lib",
         "@com_google_googletest//:gtest_main",
         "@com_google_googletest//:gtest"
     ],

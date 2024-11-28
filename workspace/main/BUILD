@@ -1,8 +1,15 @@
 cc_library(
+    name = "controller_lib",
+    hdrs = ["Controller.h"],  # Header file for the Controller interface
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
     name = "pid_controller_lib",
-    srcs = ["PIDController.cpp"],  # Source file for the PID controller library
-    hdrs = ["PIDController.h"],    # Header file for the PID controller library
-    visibility = ["//visibility:public"],  # Make this library accessible to all packages
+    srcs = ["PIDController.cpp"],
+    hdrs = ["PIDController.h", "Controller.h"],  # Include Controller.h for dependency
+    deps = [":controller_lib"],  # Depend on Controller library
+    visibility = ["//visibility:public"],
 )
 
 cc_library(

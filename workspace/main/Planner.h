@@ -1,21 +1,21 @@
 #ifndef PLANNER_H
 #define PLANNER_H
 
-#include "PIDController.h" // Include the PIDController header
+#include "Controller.h"
 
 class Planner
 {
 private:
-    PIDController &pid_; // Reference to an external PIDController instance
+    Controller &controller_; // Dependency on the Controller interface
 
 public:
-    // Constructor: accept a PIDController instance by reference
-    Planner(PIDController &pid);
+    // Constructor: accepts a Controller instance
+    Planner(Controller &controller);
 
-    // Method to plan and adjust based on the PIDController
+    // Method to plan and adjust based on the controller
     double plan(double setpoint, double current_value);
 
-    // Method to reset the PIDController
+    // Method to reset the controller
     void reset();
 };
 

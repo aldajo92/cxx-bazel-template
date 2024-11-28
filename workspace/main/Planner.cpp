@@ -1,18 +1,17 @@
 #include "Planner.h"
 
-// Constructor: Initialize Planner with a reference to an existing PIDController
-Planner::Planner(PIDController &pid)
-    : pid_(pid) {}
+// Constructor: Initialize with a reference to a Controller
+Planner::Planner(Controller &controller)
+    : controller_(controller) {}
 
-// Method to plan and adjust based on the PIDController
+// Method to plan and adjust based on the Controller
 double Planner::plan(double setpoint, double current_value)
 {
-    // Use the PID controller to compute the control signal
-    return pid_.compute(setpoint, current_value);
+    return controller_.compute(setpoint, current_value);
 }
 
-// Method to reset the PIDController
+// Method to reset the Controller
 void Planner::reset()
 {
-    pid_.reset();
+    controller_.reset();
 }

@@ -1,9 +1,10 @@
 #ifndef PIDCONTROLLER_H
 #define PIDCONTROLLER_H
 
+#include "Controller.h"
 #include <chrono>
 
-class PIDController
+class PIDController : public Controller
 {
 private:
     // PID gains
@@ -20,11 +21,9 @@ public:
     // Constructor
     PIDController(double kp, double ki, double kd);
 
-    // Method to compute the control output
-    virtual double compute(double setpoint, double current_value);
-
-    // Method to reset the integral and previous error terms
-    virtual void reset();
+    // Override methods from the Controller interface
+    double compute(double setpoint, double current_value) override;
+    void reset() override;
 
     // Setters for PID gains
     void setKp(double kp);
@@ -36,8 +35,8 @@ public:
     double getKi() const;
     double getKd() const;
 
-    // Virtual destructor for proper cleanup of derived classes
-    virtual ~PIDController() = default;
+    // Destructor
+    ~PIDController() override = default;
 };
 
 #endif // PIDCONTROLLER_H
