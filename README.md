@@ -7,10 +7,29 @@ Bazel test compiling C++ "Hello World" and google test suite
 Build the docker image by running the following inside the root dir of the repo:
 
 ~~~bash
+./scripts/build
+~~~
+
+Execute the image
+
+~~~bash
+./scripts/run
+~~~
+
+Open a new bash terminal (if it is needed):
+~~~bash
+./scripts/bash
+~~~
+
+## Initialize with Docker Compose (alternative)
+
+Build the docker image by running the following inside the root dir of the repo:
+
+~~~bash
 docker compose up -d
 ~~~
 
-Jump into the container by running:
+Jump into the container by running the following command in a new terminal:
 
 ~~~bash
 docker exec -it bazel-test bash

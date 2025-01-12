@@ -3,6 +3,6 @@ services:
     build: .
     container_name: bazel-test
     volumes:
-      - .:/workspace
+      - ./workspace:/workspace
     stdin_open: true
     tty: true

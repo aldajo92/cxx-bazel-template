@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../main/hello_world.h"
+#include <gtest/gtest.h>
 
 TEST(HelloWorldTest, OutputTest) {
     // Since helloWorld outputs to stdout, you'd need to redirect stdout to test it properly.

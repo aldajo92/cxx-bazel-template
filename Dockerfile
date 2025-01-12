@@ -16,3 +16,4 @@ RUN curl -Lo /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/release
 RUN bazel --version
 
 WORKDIR /workspace
+ENTRYPOINT [ "/bin/bash" ]
